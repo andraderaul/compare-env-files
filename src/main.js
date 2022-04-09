@@ -3,7 +3,8 @@ const R = require("ramda");
 const fs = require("fs");
 
 /**
- * Receive a file name and return a content file
+ * Receives a file name and return a content file or an error.
+ *
  * @param {string} fileName
  */
 const readFile = async (fileName) => {
@@ -22,6 +23,7 @@ const readFile = async (fileName) => {
 };
 
 /**
+ * Receives a string with `=` and return a sub string before the `=`.
  *
  * @param {string} line
  * @returns
@@ -29,13 +31,14 @@ const readFile = async (fileName) => {
 const getKeys = (line) => R.head(R.split("=", line));
 
 /**
- *
+ * Receives a string with `\n` and return an array split by `\n`
  * @param {string} dataFile
  */
 const dataFileToKey = (dataFile) => R.split("\n", getKeys(dataFile));
 // R.pipe(getKeys, R.curry(R.split("\n")));
 
 /**
+ * Receives two array and return true if their are equals or false when their aren't
  *
  * @param {string[]} keys1
  * @param {string[]} keys2

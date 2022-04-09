@@ -1,4 +1,3 @@
-const github = require("@actions/github");
 const core = require("@actions/core");
 const R = require("ramda");
 const fs = require("fs");

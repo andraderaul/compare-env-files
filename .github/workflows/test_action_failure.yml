@@ -21,7 +21,7 @@ jobs:
         run: yarn install
 
       - name: Compare env files
-        uses: andraderaul/compare-env-files@v1.0.0
+        uses: andraderaul/compare-env-files@main
         with:
           firstEnv: .env.local
           secondEnv: .env.staging

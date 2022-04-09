@@ -1,3 +1,4 @@
+const github = require("@actions/github");
 const core = require("@actions/core");
 const R = require("ramda");
 const fs = require("fs");
@@ -48,11 +49,14 @@ const compareKeys = (keys1, keys2) =>
 
 /**
  *
- * @param {string} fileName1
- * @param {string} fileName2
+ * @param {string | undefined} firstEnv
+ * @param {string | undefined} secondEnv
  * @returns
  */
-const main = async (fileName1, fileName2) => {
+const main = async (firstEnv, secondEnv) => {
+  const fileName1 = core.getInput("firstEnv") || firstEnv;
+  const fileName2 = core.getInput("secondEnv") || secondEnv;
+
   const file1 = await readFile(fileName1);
   if (!file1.ok) {
     core.setFailed(file1.result);

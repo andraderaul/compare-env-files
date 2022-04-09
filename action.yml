@@ -14,7 +14,7 @@ outputs:
     description: "Action Result"
 runs:
   using: "node12"
-  main: "index.js"
+  main: "dist/index.js"
 branding:
   color: "blue"
   icon: "anchor"

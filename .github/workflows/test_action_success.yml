@@ -17,9 +17,6 @@ jobs:
         with:
           node-version: "lts/*"
 
-      - name: Install dependencies
-        run: yarn install
-
       - name: Compare env files
         uses: andraderaul/compare-env-files@main
         with:

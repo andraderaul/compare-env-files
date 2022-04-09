@@ -15,8 +15,8 @@ jobs:
         with:
           node-version: "lts/*"
 
-      - name: Install dependencies
-        run: yarn install
+      - name: Install lib dependencies
+        run: bahmutov/npm-install@v1
 
       - name: Compare env files
         uses: andraderaul/compare-env-files@main

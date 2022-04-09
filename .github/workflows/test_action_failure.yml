@@ -1,0 +1,30 @@
+name: Failure
+
+on: [push]
+
+jobs:
+  custom_test:
+    runs-on: ubuntu-latest
+    name: We test it locally with act
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "lts/*"
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Compare env files
+        uses: ./
+        with:
+          firstEnv: .env.local
+          secondEnv: .env.staging
+
+      - name: Result
+        run: echo "${{ steps.outputs.result }} attack"

@@ -1,3 +1,5 @@
+name: Success
+
 on: [push]
 
 jobs:
@@ -22,7 +24,7 @@ jobs:
         uses: ./
         with:
           firstEnv: .env.local
-          secondEnv: .env.staging
+          secondEnv: .env.local
 
       - name: Result
         run: echo "${{ steps.outputs.result }} attack"

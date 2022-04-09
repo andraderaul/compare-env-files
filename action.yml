@@ -1,0 +1,20 @@
+name: "Compare keys from env file"
+description: "This action will verify two env files and returns ok if their keys are equals"
+inputs:
+  firstEnv:
+    description: "First Env"
+    required: true
+    default: ".env"
+  secondEnv:
+    description: "Second Env"
+    required: true
+    default: ".env.staging"
+outputs:
+  result: # id of output
+    description: "Action Result"
+runs:
+  using: "node12"
+  main: "src/index.js"
+branding:
+  color: "blue"
+  icon: "anchor"

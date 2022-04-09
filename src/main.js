@@ -1,3 +1,4 @@
+const core = require("@actions/core");
 const R = require("ramda");
 const fs = require("fs");
 
@@ -54,15 +55,28 @@ const compareKeys = (keys1, keys2) =>
 const main = async (fileName1, fileName2) => {
   const file1 = await readFile(fileName1);
   if (!file1.ok) {
+    core.setFailed(file1.result);
     return file1.result;
   }
 
   const file2 = await readFile(fileName2);
   if (!file2.ok) {
+    core.setFailed(file2.result);
     return file2.result;
   }
 
-  return compareKeys(dataFileToKey(file1.result), dataFileToKey(file2.result));
+  const result = compareKeys(
+    dataFileToKey(file1.result),
+    dataFileToKey(file2.result)
+  );
+
+  if (result) {
+    core.setOutput("result", `Done`);
+  } else {
+    core.setFailed("The env keys are not equal");
+  }
+
+  return result;
 };
 
 module.exports = main;

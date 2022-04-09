@@ -1,0 +1,14 @@
+on: [push]
+
+jobs:
+  custom_test:
+    runs-on: ubuntu-latest
+    name: We test it locally with act
+    steps:
+      - name: Compare env files
+        uses: andraderaul/compare-env-files@main
+        with:
+          firstEnv: .env.local
+          secondEnv: .env.staging
+      - name: Get the pokemon
+        run: echo "${{ steps.outputs.result }} attack"

@@ -1,0 +1,21 @@
+{
+  "name": "compare-env-files",
+  "version": "0.1.0",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:andraderaul/compare-env-files.git"
+  },
+  "author": "Raul Andrade <theandraderaul@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "ramda": "^0.28.0"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1"
+  }
+}

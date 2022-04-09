@@ -23,7 +23,8 @@ const readFile = async (fileName) => {
 };
 
 /**
- * Receives a string with `=` and return a sub string before the `=`.
+ * Receives a string with `=` and
+ * return a sub string before the `=`.
  *
  * @param {string} line
  * @returns
@@ -31,14 +32,29 @@ const readFile = async (fileName) => {
 const getKeys = (line) => R.head(R.split("=", line));
 
 /**
- * Receives a string with `\n` and return an array split by `\n`
- * @param {string} dataFile
+ * Receives a string with `\n` and
+ * return an new array of the string split by `\n`.
+ *
+ * @param {string} text
+ * @returns
  */
-const dataFileToKey = (dataFile) => R.split("\n", getKeys(dataFile));
-// R.pipe(getKeys, R.curry(R.split("\n")));
+const getLines = (text) => R.split("\n", text);
 
 /**
- * Receives two array and return true if their are equals or false when their aren't
+ * Receives a string with key value and return a
+ * new array with only keys sorted by lexicography
+ *
+ * @param {string} fileEnv
+ */
+const fileEnvToKey = (fileEnv) =>
+  R.sort(
+    R.comparator((a, b) => a < b),
+    R.map(getKeys, getLines(fileEnv))
+  );
+
+/**
+ * Receives two array and return true
+ * if their are equals or false when their aren't
  *
  * @param {string[]} keys1
  * @param {string[]} keys2
@@ -72,8 +88,8 @@ const main = async (firstEnv, secondEnv) => {
   }
 
   const result = compareKeys(
-    dataFileToKey(file1.result),
-    dataFileToKey(file2.result)
+    fileEnvToKey(file1.result),
+    fileEnvToKey(file2.result)
   );
 
   if (result) {

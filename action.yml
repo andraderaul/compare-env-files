@@ -1,5 +1,5 @@
 name: "Compare keys from env file"
-description: "This action will verify two env files and returns ok if their keys are equals"
+description: "This action will verify two env files and returns ok if their all keys are equals"
 inputs:
   firstEnv:
     description: "First Env"

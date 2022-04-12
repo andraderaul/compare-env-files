@@ -47,9 +47,12 @@ const getLines = (text) => R.split("\n", text);
  * @param {string} fileEnv
  */
 const fileEnvToKey = (fileEnv) =>
-  R.sort(
-    R.comparator((a, b) => a < b),
-    R.map(getKeys, getLines(fileEnv))
+  R.filter(
+    (key) => !!key,
+    R.sort(
+      R.comparator((a, b) => a < b),
+      R.map(getKeys, getLines(fileEnv))
+    )
   );
 
 /**
@@ -87,10 +90,12 @@ const main = async (firstEnv, secondEnv) => {
     return file2.result;
   }
 
-  const result = compareKeys(
-    fileEnvToKey(file1.result),
-    fileEnvToKey(file2.result)
-  );
+  const key1 = fileEnvToKey(file1.result);
+  core.info(key1);
+  const key2 = fileEnvToKey(file2.result);
+  core.info(key2);
+
+  const result = compareKeys(key1, key2);
 
   if (result) {
     core.setOutput("result", `Done`);

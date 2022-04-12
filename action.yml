@@ -4,11 +4,9 @@ inputs:
   firstEnv:
     description: "First Env"
     required: true
-    default: ".env"
   secondEnv:
     description: "Second Env"
     required: true
-    default: ".env.staging"
 outputs:
   result: # id of output
     description: "Action Result"

@@ -1,4 +1,4 @@
-# compare-env-files 1.0.1
+# compare-env-files 1.0.2
 
 Check your file envs through github actions
 

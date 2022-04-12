@@ -1,6 +1,6 @@
 {
   "name": "compare-env-files",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "src/index.js",
   "repository": {
     "type": "git",
@@ -15,6 +15,8 @@
   },
   "dependencies": {
     "@actions/core": "^1.6.0",
+    "@vercel/ncc": "^0.33.4",
+    "global": "^4.4.0",
     "ramda": "^0.28.0"
   },
   "devDependencies": {

@@ -1,4 +1,4 @@
-# compare-env-files 1.0.2
+# compare-env-files 1.0.3
 
 Check your file envs through github actions
 
@@ -23,7 +23,7 @@ jobs:
 
     steps:
         - name: Compare env files
-        uses: andraderaul/compare-env-files@v0.3.0
+        uses: andraderaul/compare-env-files@v1.0.3
         with:
           firstEnv: .env.local
           secondEnv: .env.staging

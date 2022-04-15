@@ -16,6 +16,13 @@ describe("testing env compare", () => {
     expect(result).toBe(true);
   });
 
+  it("should return true when the env keys are equals, but one of them has an one more \n character", async () => {
+    const result = await main(".env.dev", ".env.staging");
+
+    expect(core.setOutput).toHaveBeenCalledTimes(1);
+    expect(result).toBe(true);
+  });
+
   it("should return true when the env keys are equals, but not in the same order", async () => {
     const result = await main(".env.dev", ".env.staging");
 

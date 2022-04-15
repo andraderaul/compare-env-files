@@ -69,6 +69,18 @@ const compareKeys = (keys1, keys2) =>
   );
 
 /**
+ * Receives an array and log it
+ * @param {string[]} data
+ * @param {*} info
+ * @returns {string[]}
+ */
+
+const log = (data, info = core.info) => {
+  info(data);
+  return data;
+};
+
+/**
  *
  * @param {string | undefined} firstEnv
  * @param {string | undefined} secondEnv
@@ -90,12 +102,10 @@ const main = async (firstEnv, secondEnv) => {
     return file2.result;
   }
 
-  const key1 = fileEnvToKey(file1.result);
-  core.info(key1);
-  const key2 = fileEnvToKey(file2.result);
-  core.info(key2);
-
-  const result = compareKeys(key1, key2);
+  const result = compareKeys(
+    log(fileEnvToKey(file1.result)),
+    log(fileEnvToKey(file2.result))
+  );
 
   if (result) {
     core.setOutput("result", `Done`);

@@ -21,7 +21,7 @@ jobs:
         uses: andraderaul/compare-env-files@main
         with:
           firstEnv: .env.local
-          secondEnv: .env.local
+          secondEnv: .env.production
 
       - name: Result
         run: echo "${{ steps.outputs.result }} attack"

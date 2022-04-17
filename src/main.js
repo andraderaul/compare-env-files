@@ -2,6 +2,9 @@ const core = require("@actions/core");
 const R = require("ramda");
 const fs = require("fs");
 
+const NEW_LINE = "\n";
+const EQUAL = "=";
+
 /**
  * Receives a file name and return a content file or an error.
  *
@@ -29,7 +32,7 @@ const readFile = async (fileName) => {
  * @param {string} line
  * @returns
  */
-const getKeys = (line) => R.head(R.split("=", line));
+const getKeys = (line) => R.head(R.split(EQUAL, line));
 
 /**
  * Receives a string with `\n` and
@@ -38,7 +41,7 @@ const getKeys = (line) => R.head(R.split("=", line));
  * @param {string} text
  * @returns
  */
-const getLines = (text) => R.split("\n", text);
+const getLines = (text) => R.split(NEW_LINE, text);
 
 /**
  * Receives a string with key value and return a

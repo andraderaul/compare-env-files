@@ -16,7 +16,6 @@
   "dependencies": {
     "@actions/core": "^1.6.0",
     "@vercel/ncc": "^0.33.4",
-    "global": "^4.4.0",
     "ramda": "^0.28.0"
   },
   "devDependencies": {
